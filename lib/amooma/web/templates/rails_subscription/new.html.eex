@@ -1,0 +1,7 @@
+<h2>Rails Newsletter Subscription</h2>
+
+<p>Please fill out this form to subscribe to our Rails newsletter.
+We plan to send two newsletters per month.</p>
+
+<%= render "form.html", changeset: @changeset,
+                        action: rails_subscription_path(@conn, :create) %>
