@@ -106,5 +106,12 @@ defmodule Amooma.Interim do
     rails_subscription
     |> cast(attrs, [:first_name, :last_name, :gender, :email])
     |> validate_required([:first_name, :last_name, :gender, :email])
+    |> downcase_email
+  end
+
+  defp downcase_email(changeset) do
+    # If the email has been changed, downcase it.
+    changeset
+    |> update_change(:email, &String.downcase/1)
   end
 end
